@@ -6,19 +6,72 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		B91004F52D3DD5A60022E0AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B91E19692D29B8660081505D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B91E19702D29B8660081505D;
+			remoteInfo = NostosApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B910055F2D3ED12F0022E0AC /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B91004F12D3DD5A50022E0AC /* NostosAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NostosAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B91004FB2D3ECDC40022E0AC /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
+		B91004FD2D3ECDCC0022E0AC /* RealityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealityKit.framework; path = System/Library/Frameworks/RealityKit.framework; sourceTree = SDKROOT; };
+		B910054A2D3ED12E0022E0AC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		B910054C2D3ED12E0022E0AC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		B91E19712D29B8660081505D /* NostosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NostosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B91E19FD2D29F6250081505D /* Exceptions for "NostosApp" folder in "NostosApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = B91E19702D29B8660081505D /* NostosApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		B91004F22D3DD5A60022E0AC /* NostosAppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NostosAppTests;
+			sourceTree = "<group>";
+		};
 		B91E19732D29B8660081505D /* NostosApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B91E19FD2D29F6250081505D /* Exceptions for "NostosApp" folder in "NostosApp" target */,
+			);
 			path = NostosApp;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B91004EE2D3DD5A50022E0AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B91E196E2D29B8660081505D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -29,10 +82,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B91004FA2D3ECDC40022E0AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B91004FD2D3ECDCC0022E0AC /* RealityKit.framework */,
+				B91004FB2D3ECDC40022E0AC /* ARKit.framework */,
+				B910054A2D3ED12E0022E0AC /* WidgetKit.framework */,
+				B910054C2D3ED12E0022E0AC /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B91E19682D29B8660081505D = {
 			isa = PBXGroup;
 			children = (
 				B91E19732D29B8660081505D /* NostosApp */,
+				B91004F22D3DD5A60022E0AC /* NostosAppTests */,
+				B91004FA2D3ECDC40022E0AC /* Frameworks */,
 				B91E19722D29B8660081505D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				B91E19712D29B8660081505D /* NostosApp.app */,
+				B91004F12D3DD5A50022E0AC /* NostosAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,6 +115,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B91004F02D3DD5A50022E0AC /* NostosAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B91004F72D3DD5A60022E0AC /* Build configuration list for PBXNativeTarget "NostosAppTests" */;
+			buildPhases = (
+				B91004ED2D3DD5A50022E0AC /* Sources */,
+				B91004EE2D3DD5A50022E0AC /* Frameworks */,
+				B91004EF2D3DD5A50022E0AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B91004F62D3DD5A60022E0AC /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B91004F22D3DD5A60022E0AC /* NostosAppTests */,
+			);
+			name = NostosAppTests;
+			packageProductDependencies = (
+			);
+			productName = NostosAppTests;
+			productReference = B91004F12D3DD5A50022E0AC /* NostosAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B91E19702D29B8660081505D /* NostosApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B91E19812D29B8680081505D /* Build configuration list for PBXNativeTarget "NostosApp" */;
@@ -55,6 +145,7 @@
 				B91E196D2D29B8660081505D /* Sources */,
 				B91E196E2D29B8660081505D /* Frameworks */,
 				B91E196F2D29B8660081505D /* Resources */,
+				B910055F2D3ED12F0022E0AC /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -80,6 +171,10 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					B91004F02D3DD5A50022E0AC = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = B91E19702D29B8660081505D;
+					};
 					B91E19702D29B8660081505D = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -91,6 +186,8 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
+				fr,
 			);
 			mainGroup = B91E19682D29B8660081505D;
 			minimizedProjectReferenceProxies = 1;
@@ -100,11 +197,19 @@
 			projectRoot = "";
 			targets = (
 				B91E19702D29B8660081505D /* NostosApp */,
+				B91004F02D3DD5A50022E0AC /* NostosAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B91004EF2D3DD5A50022E0AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B91E196F2D29B8660081505D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -115,6 +220,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B91004ED2D3DD5A50022E0AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B91E196D2D29B8660081505D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -124,7 +236,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B91004F62D3DD5A60022E0AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B91E19702D29B8660081505D /* NostosApp */;
+			targetProxy = B91004F52D3DD5A60022E0AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		B91004F82D3DD5A60022E0AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 78JJZPY36F;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = duru.NostosAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NostosApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NostosApp";
+			};
+			name = Debug;
+		};
+		B91004F92D3DD5A60022E0AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 78JJZPY36F;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = duru.NostosAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NostosApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NostosApp";
+			};
+			name = Release;
+		};
 		B91E197F2D29B8680081505D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -249,12 +405,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NostosApp/NostosApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NostosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 78JJZPY36F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NostosApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -278,12 +437,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NostosApp/NostosApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NostosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 78JJZPY36F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NostosApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -305,6 +467,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B91004F72D3DD5A60022E0AC /* Build configuration list for PBXNativeTarget "NostosAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B91004F82D3DD5A60022E0AC /* Debug */,
+				B91004F92D3DD5A60022E0AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B91E196C2D29B8660081505D /* Build configuration list for PBXProject "NostosApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

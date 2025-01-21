@@ -1,0 +1,62 @@
+/* 
+  Localizable.strings
+  NostosApp
+
+  Created by Duru SAVAŞ on 21/01/2025.
+  
+*/
+/* General */
+"Goals" = "Goals";
+"Daily" = "Daily";
+"Weekly" = "Weekly";
+"Monthly" = "Monthly";
+"Add Goal" = "Add Goal";
+"All Goals Progress" = "All Goals Progress";
+"Circle View" = "Circle View";
+"List View" = "List View";
+
+/* Timeframe filter */
+"Timeframe filter" = "Timeframe filter";
+
+/* Goal Name Step */
+"What's your goal?" = "What's your goal?";
+"My goal is..." = "My goal is...";
+
+/* Goal Type Step */
+"Metrics" = "Metrics";
+"Time-Based" = "Time-Based";
+"Consistency-Based" = "Consistency-Based";
+"times" = "times";
+"per" = "per";
+
+/* Goal Deadline Step */
+"Set a Deadline" = "Set a Deadline";
+"Custom Picker" = "Custom Picker";
+"Custom Date" = "Custom Date";
+"End of the Year" = "End of the Year";
+"%d days left in the year." = "%d days left in the year.";
+
+"hours" = "hours";
+"days" = "days";
+"weeks" = "weeks";
+"months" = "months";
+"day" = "day";
+"week" = "week";
+"month" = "month";
+
+
+/* Goal Category Step */
+"Select a Category" = "Select a Category";
+"PersonalGrowth" = "Personal Growth";
+"Educational" = "Educational";
+"Relationships" = "Relationships";
+"Financial" = "Financial";
+"Lifestyle" = "Lifestyle";
+"Skills, Hobbies, Health" = "Skills, Hobbies, Health";
+"Degrees, Certifications, Career Milestones" = "Degrees, Certifications, Career Milestones";
+"Family, Friendships, Romantic" = "Family, Friendships, Romantic";
+"Savings, Investments, Purchases" = "Savings, Investments, Purchases";
+"Travel, Experiences, Routines" = "Travel, Experiences, Routines";
+
+/* Progress */
+"Progress for %@" = "Progress for %@";

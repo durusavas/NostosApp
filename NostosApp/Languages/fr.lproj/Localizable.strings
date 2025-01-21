@@ -1,0 +1,62 @@
+/* 
+  Localizable.strings
+  NostosApp
+
+  Created by Duru SAVAŞ on 21/01/2025.
+  
+*/
+/* General */
+"Goals" = "Objectifs";
+"Daily" = "Quotidien";
+"Weekly" = "Hebdomadaire";
+"Monthly" = "Mensuel";
+"Add Goal" = "Ajouter un Objectif";
+"All Goals Progress" = "Progrès";
+"Circle View" = "Vue en Cercle";
+"List View" = "Vue en Liste";
+
+/* Timeframe filter */
+"Timeframe filter" = "Filtre de période";
+
+/* Goal Name Step */
+"What's your goal?" = "Quel est votre objectif ?";
+"My goal is..." = "Mon objectif est...";
+
+/* Goal Type Step */
+"Metrics" = "Mesures";
+"Time-Based" = "Basé sur le Temps";
+"Consistency-Based" = "Basé sur la Cohérence";
+"times" = "fois";
+"per" = "par";
+
+"hours" = "heures";
+"days" = "jours";
+"weeks" = "semaines";
+"months" = "mois";
+"day" = "jour";
+"week" = "semaine";
+"month" = "mois";
+
+
+/* Goal Deadline Step */
+"Set a Deadline" = "Définir une date Limite";
+"Custom Picker" = "Personnalisé";
+"Custom Date" = "Calendrier";
+"End of the Year" = "Fin de l'Année";
+"%d days left in the year." = "Il reste %d jours dans l'année.";
+
+/* Goal Category Step */
+"Select a Category" = "Sélectionnez une Catégorie";
+"PersonalGrowth" = "Croissance Personnelle";
+"Educational" = "Éducatif";
+"Relationships" = "Relations";
+"Financial" = "Financier";
+"Lifestyle" = "Style de Vie";
+"Skills, Hobbies, Health" = "Compétences, Loisirs, Santé";
+"Degrees, Certifications, Career Milestones" = "Diplômes, Certifications, Carrière";
+"Family, Friendships, Romantic" = "Famille, Amitiés, Romantique";
+"Savings, Investments, Purchases" = "Économies, Investissements, Achats";
+"Travel, Experiences, Routines" = "Voyages, Expériences, Routines";
+
+/* Progress */
+"Progress for %@" = "Progrès pour %@";

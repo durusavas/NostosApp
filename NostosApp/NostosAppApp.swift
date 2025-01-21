@@ -27,7 +27,9 @@ struct NostosAppApp: App {
     var body: some Scene {
         WindowGroup {
             MainTabView()
+              
         }
         .modelContainer(sharedModelContainer)
+        
     }
 }

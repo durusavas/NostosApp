@@ -10,7 +10,7 @@ import SwiftData
 import SwiftUI
 
 enum Category: String, CaseIterable, Codable {
-    case personalGrowth = "Personal Growth"
+    case personalGrowth = "PersonalGrowth"
     case educational = "Educational"
     case relationships = "Relationships"
     case financial = "Financial"
@@ -18,21 +18,32 @@ enum Category: String, CaseIterable, Codable {
 
     var color: Color {
         switch self {
-        case .personalGrowth: return .purple
-        case .educational: return .green
-        case .relationships: return .pink
-        case .financial: return .blue
-        case .lifestyle: return .yellow
+        case .personalGrowth: return Color("personalGrowth")
+        case .educational: return Color("educational")
+        case .relationships: return Color("relationships")
+        case .financial: return Color("financial")
+        case .lifestyle: return Color("lifestyle")
         }
     }
 
-    var description: String {
+    // Localized name for the category
+    var localizedName: String {
+        NSLocalizedString(rawValue, comment: "Localized name for the \(rawValue) category")
+    }
+
+    // Localized description for the category
+    var localizedDescription: String {
         switch self {
-        case .personalGrowth: return "Skills, Hobbies, Health"
-        case .educational: return "Degrees, Certifications, Career Milestones"
-        case .relationships: return "Family, Friendships, Romantic"
-        case .financial: return "Savings, Investments, Purchases"
-        case .lifestyle: return "Travel, Experiences, Routines"
+        case .personalGrowth:
+            return NSLocalizedString("Skills, Hobbies, Health", comment: "Description for Personal Growth category")
+        case .educational:
+            return NSLocalizedString("Degrees, Certifications, Career Milestones", comment: "Description for Educational category")
+        case .relationships:
+            return NSLocalizedString("Family, Friendships, Romantic", comment: "Description for Relationships category")
+        case .financial:
+            return NSLocalizedString("Savings, Investments, Purchases", comment: "Description for Financial category")
+        case .lifestyle:
+            return NSLocalizedString("Travel, Experiences, Routines", comment: "Description for Lifestyle category")
         }
     }
 }

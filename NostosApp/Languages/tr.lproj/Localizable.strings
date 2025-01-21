@@ -1,0 +1,62 @@
+/* 
+  Localizable.strings
+  NostosApp
+
+  Created by Duru SAVAŞ on 21/01/2025.
+  
+*/
+/* General */
+"Goals" = "Hedefler";
+"Daily" = "Günlük";
+"Weekly" = "Haftalık";
+"Monthly" = "Aylık";
+"Add Goal" = "Hedef Ekle";
+"All Goals Progress" = "Tüm Hedefler";
+"Circle View" = "Daire";
+"List View" = "Liste";
+
+/* Timeframe filter */
+"Timeframe filter" = "Zaman aralığı filtresi";
+
+/* Goal Name Step */
+"What's your goal?" = "Hedefiniz nedir?";
+"My goal is..." = "Hedefim...";
+
+/* Goal Type Step */
+"Metrics" = "Metrik";
+"Time-Based" = "Zamana Dayalı";
+"Consistency-Based" = "Tutarlılığa Dayalı";
+"times" = "kez";
+"per" = "her";
+
+/* Goal Deadline Step */
+"Set a Deadline" = "Son Tarihi Belirleyin";
+"Custom Picker" = "Özel Seçici";
+"Custom Date" = "Takvim";
+"End of the Year" = "Yıl Sonu";
+"%d days left in the year." = "Yılın bitmesine %d gün kaldı.";
+
+"hours" = "saat";
+"days" = "gün";
+"weeks" = "hafta";
+"months" = "ay";
+"day" = "gün";
+"week" = "hafta";
+"month" = "ay";
+
+
+/* Goal Category Step */
+"Select a Category" = "Bir Kategori Seçin";
+"PersonalGrowth" = "Kişisel Gelişim";
+"Educational" = "Eğitim";
+"Relationships" = "İlişkiler";
+"Financial" = "Finansal";
+"Lifestyle" = "Yaşam Tarzı";
+"Skills, Hobbies, Health" = "Beceriler, Hobiler, Sağlık";
+"Degrees, Certifications, Career Milestones" = "Diplomalar, Sertifikalar, Kariyer";
+"Family, Friendships, Romantic" = "Aile, Arkadaşlıklar, Romantik";
+"Savings, Investments, Purchases" = "Birikim, Yatırım, Alışveriş";
+"Travel, Experiences, Routines" = "Seyahat, Deneyimler, Rutinler";
+
+/* Progress */
+"Progress for %@" = "%@ için İlerleme";

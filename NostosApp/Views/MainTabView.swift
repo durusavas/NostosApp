@@ -9,28 +9,28 @@ import SwiftUI
 
 struct MainTabView: View {
     @StateObject var viewModel = GoalViewModel()
-
+    
     var body: some View {
         TabView {
             NavigationView {
                 GoalsListView(viewModel: viewModel)
             }
             .tabItem {
-                Label("Goals", systemImage: "list.bullet")
+                Image(systemName: "list.bullet")
             }
-
+            
             NavigationView {
                 GoalProgressView(viewModel: viewModel)
             }
             .tabItem {
-                Label("Progress", systemImage: "chart.bar")
+                Image(systemName: "chart.bar")
             }
-
+            
             NavigationView {
                 AddGoalView(viewModel: viewModel)
             }
             .tabItem {
-                Label("Add Goal", systemImage: "plus.circle")
+                Image(systemName: "plus.circle")
             }
         }
     }

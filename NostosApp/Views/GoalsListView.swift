@@ -9,103 +9,172 @@ import SwiftUI
 
 struct GoalsListView: View {
     @ObservedObject var viewModel: GoalViewModel
-    @State private var selectedTimeframe: String = "Daily"
-    
+    @State private var selectedTimeframe: String = NSLocalizedString("Daily", comment: "Timeframe picker option")
+    @State private var activeGoals: Set<UUID> = []
+    private let timeframes = [
+        NSLocalizedString("Daily", comment: "Timeframe picker option"),
+        NSLocalizedString("Weekly", comment: "Timeframe picker option"),
+        NSLocalizedString("Monthly", comment: "Timeframe picker option")
+    ]
+
     var body: some View {
-        VStack {
-            Picker("Select Timeframe", selection: $selectedTimeframe) {
-                Text("Daily").tag("Daily")
-                Text("Weekly").tag("Weekly")
-                Text("Monthly").tag("Monthly")
-                
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding()
-            
-            List(filteredGoals, id: \.id) { goal in
-                HStack {
-                    Button(action: {
-                        viewModel.logCheck(for: goal)
-                    }) {
-                        Image(systemName: viewModel.checks[goal.id] ?? 0 > 0 ? "checkmark.circle.fill" : "circle")
-                            .foregroundColor(viewModel.checks[goal.id] ?? 0 > 0 ? .green : .gray)
+        ZStack {
+            Color("bgColor")
+                .ignoresSafeArea()
+
+            VStack {
+                // Timeframe Picker
+                timeframePicker
+
+                // Goals List
+                ScrollView {
+                    LazyVStack(spacing: 16) {
+                        ForEach(filteredGoals, id: \.id) { goal in
+                            goalRow(for: goal)
+                        }
                     }
-                    
-                    Text(goal.title)
+                    .padding()
                 }
-                .padding()
-                .background(goal.category.color.opacity(0.2))
-                .cornerRadius(8)
             }
-        }
-        .navigationTitle("\(selectedTimeframe) Goals")
-        .onAppear {
-            viewModel.filterGoalsByTimeframe()
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text(NSLocalizedString("Goals", comment: "Toolbar title"))
+                        .font(.custom("BellotaText-Bold", size: 35))
+                        .foregroundColor(Color("textColor"))
+                }
+            }
+            .onAppear {
+                viewModel.resetCompletionsIfNeeded()
+            }
         }
     }
-    
-    var filteredGoals: [Goal] {
+
+
+    private var timeframePicker: some View {
+        HStack {
+            ForEach(timeframes, id: \.self) { timeframe in
+                Text(timeframe)
+                    .font(.custom("BellotaText-Regular", size: 16))
+                    .foregroundColor(Color("textColor"))
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 16)
+                    .background(
+                        timeframe == selectedTimeframe
+                            ? Color("textColor").opacity(0.2)
+                            : Color.clear
+                    )
+                    .cornerRadius(30)
+                    .onTapGesture {
+                        withAnimation(.spring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.2)) {
+                            selectedTimeframe = timeframe
+                        }
+                    }
+            }
+        }
+        .padding()
+    }
+
+
+    private func goalRow(for goal: Goal) -> some View {
+        HStack {
+            // Check Button with Toggle Logic
+            Button(action: {
+                handleCheck(for: goal)
+            }) {
+                let currentCompletions = viewModel.completions[goal.id] ?? 0
+                let isActive = activeGoals.contains(goal.id) || currentCompletions == Int(goal.metric.value)
+
+                Image(systemName: isActive ? "checkmark.circle.fill" : "circle")
+                    .foregroundColor(isActive ? goal.category.color : Color("textColor"))
+                    .scaleEffect(isActive ? 1.2 : 1.0)
+                    .animation(.easeInOut(duration: 0.2), value: isActive)
+            }
+
+            Text(goal.title)
+                .font(.custom("BellotaText-Regular", size: 16))
+                .foregroundColor(Color("textColor"))
+
+            Spacer()
+
+            progressCircles(for: goal)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
+        .overlay(
+            RoundedRectangle(cornerRadius: 30)
+                .stroke(Color("textColor"), lineWidth: 1)
+        )
+    }
+
+    private func progressCircles(for goal: Goal) -> some View {
+        let metricValue = Int(goal.metric.value)
+        let currentCompletions = min(viewModel.completions[goal.id] ?? 0, metricValue)
+
+        return Group {
+            if metricValue > 5 {
+                // Show progress as text for large metrics
+                Text("\(currentCompletions)/\(metricValue)")
+                    .font(.custom("BellotaText-Regular", size: 16))
+                    .foregroundColor(goal.category.color)
+            } else {
+                // Show circles for smaller metrics
+                HStack(spacing: 5) {
+                    ForEach(0..<metricValue, id: \.self) { index in
+                        Circle()
+                            .fill(index < currentCompletions ? goal.category.color : Color.clear)
+                            .frame(width: 20, height: 20)
+                            .overlay(
+                                Circle()
+                                    .stroke(goal.category.color, lineWidth: 2)
+                            )
+                    }
+                }
+            }
+        }
+    }
+
+    private var filteredGoals: [Goal] {
         switch selectedTimeframe {
-        case "Daily":
-            return viewModel.dailyGoals
-        case "Weekly":
-            return viewModel.weeklyGoals
-        case "Monthly":
-            return viewModel.monthlyGoals
-            
+        case NSLocalizedString("Daily", comment: "Timeframe filter"):
+            return viewModel.filterGoals(by: "day")
+        case NSLocalizedString("Weekly", comment: "Timeframe filter"):
+            return viewModel.filterGoals(by: "week")
+        case NSLocalizedString("Monthly", comment: "Timeframe filter"):
+            return viewModel.filterGoals(by: "month")
         default:
             return []
         }
     }
-}
 
+    
+    private func handleCheck(for goal: Goal) {
+        withAnimation(.easeInOut(duration: 0.2)) {
+            viewModel.logCheck(for: goal)
+        }
+
+        let currentCompletions = viewModel.completions[goal.id] ?? 0
+        let maxCompletions = Int(goal.metric.value)
+
+        // If max completions are reached, keep the checkbox visible
+        if currentCompletions >= maxCompletions {
+            _ = activeGoals.insert(goal.id) // Explicitly ignore the return value
+        } else {
+            // Temporarily show the checkbox for a couple of seconds
+            _ = activeGoals.insert(goal.id)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                withAnimation(.easeInOut(duration: 0.2)) {
+                    _ = activeGoals.remove(goal.id)
+                }
+            }
+        }
+    }
+
+}
 
 struct GoalsListView_Previews: PreviewProvider {
     static var previews: some View {
         let demoViewModel = GoalViewModel()
-        
-        // Add mock data to the view model
-        let mockGoals = [
-            Goal(
-                title: "Study Swift",
-                type: .timeBased,
-                metric: Metric(label: "Hours per Week", value: 5.0, unit: "hours", period: "week", isCustom: false),
-                deadline: Calendar.current.date(byAdding: .day, value: 7, to: Date()) ?? Date(),
-                progress: 40.0,
-                category: .educational
-            ),
-            Goal(
-                title: "Exercise Regularly",
-                type: .consistencyBased,
-                metric: Metric(label: "Sessions per Week", value: 3.0, unit: "times", period: "day", isCustom: false),
-                deadline: Date(),
-                progress: 66.0,
-                category: .personalGrowth
-            ),
-            Goal(
-                title: "Submit Project",
-                type: .consistencyBased,
-                metric: Metric(label: "Sessions per Week", value: 3.0, unit: "times", period: "week", isCustom: false),
-                deadline: Calendar.current.date(byAdding: .day, value: 3, to: Date()) ?? Date(),
-                progress: 100.0,
-                category: .educational
-            ),
-            Goal(
-                title: "Save Money",
-                type: .consistencyBased,
-                metric: Metric(label: "Savings per Month", value: 500, unit: "dollars", period: "month", isCustom: false),
-                deadline: Date(),
-                progress: 20.0,
-                category: .financial
-            ),
-            
-        ]
-        
-        demoViewModel.goals = mockGoals
-        demoViewModel.filterGoalsByTimeframe()
-        
-        return NavigationView {
-            GoalsListView(viewModel: demoViewModel)
-        }
+        GoalsListView(viewModel: demoViewModel)
     }
 }
+
